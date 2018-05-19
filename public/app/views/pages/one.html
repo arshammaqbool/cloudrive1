@@ -1,0 +1,35 @@
+<div class="container" ng-controller= "OneController as oni">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+      <h1>One Drive</h1>
+
+      <div >
+      <form id="myForm" class="form-sigin" method="post" ng-submit= "oni.goFetchData2()">
+
+
+
+        id1: <input id="id1" type="text" name="id1" class="form-control" ng-model="oni.onedata.id1"></br>
+        name: <input id="name" type="text" name="name" class="form-control" ng-model="oni.onedata.name"></br>
+        parentid: <input id="parentid" type="text" name="parentid" class="form-control" ng-model="oni.onedata.parentid"></br>
+        size: <input id="size" type="text" name="size" class="form-control" ng-model="oni.onedata.size"></br>
+        downloadlink: <input id="dl" type="text" name="downloadlink" class="form-control" ng-model="oni.onedata.downloadlink"></br>
+        type: <input id="type" type="text" name="type" class="form-control" ng-model="oni.onedata.type"></br>
+        modified: <input id="modi" type="text" name="modified" class="form-control" ng-model="oni.onedata.modified"></br>
+        <button id="sub1" type="submit" class="btn btn-danger">Send</button>
+
+      </form>
+    </div>
+
+      <button id="getData" class="btn btn-primary btn-rounded pull-left btn-bordered visible-lg" type="submit" onclick="get_win_files('windows')">Get files</button>
+      <p id="chuss"></p>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-controller="OneController as umb">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="umb.goGetdata2()">collect</button>
+  <div class="col-md-3" ng-repeat="each in umb.onedriveData">
+    <p>{{ each._id }}</p>
+  </div>
+</div>

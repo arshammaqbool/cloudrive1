@@ -1,0 +1,122 @@
+<div class="box box-info box-solid" style="width: 20%">
+  <div class="box-header with-border">
+    <h3 class="box-title">Cloud Drive</h3>
+  </div><!-- /.box-header -->
+  <div class="box-body" style="height:600px">
+    <!-- Conversations are loaded here -->
+    <ul class="sidebar-menu" style="width:100%">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+             <a  class="treeview" ui-sref="settings" ><i class="fa fa-pie-chart" style="font-size: 1.5em; margin-right:0.2cm; vertical-align: middle;"></i>Overview</a> 
+            </li>
+            <li class="treeview">
+             <a  class="treeview" ui-sref="settings" ><i class="fa  fa-user" style="font-size: 1.5em; margin-right:0.2cm; vertical-align: middle;"></i>Profile</a> 
+            </li>
+            <li class="treeview">
+             <a  class="treeview" ui-sref="cloud_management" ><i class="fa fa-archive" style="font-size: 1.5em; margin-right:0.2cm; vertical-align: middle;"></i>Cloud Management</a> 
+            </li>
+            </ul>
+
+    <div class="sidebar-menu">
+    
+    </div>
+  </div><!-- /.box-body -->
+</div><!--/.direct-chat -->
+
+<!-- Content Header (Page header}-->
+
+
+
+<!--BreadCrumbs-->
+
+
+
+<section class="col-xs-12 col-sm-6 col-md-10 pull-right">
+        <div class="navbarmod navbar-static-top" role="navigation">
+        <div class="col-xs-6 col-sm-4">
+          <ol class="breadcrumb content-header">
+            <li><a ui-sref="settings"><i class="fa fa-cloud" style="font-size: 1.5em;  margin-right:0.2cm;vertical-align: middle;"></i>Settings</a></li>
+            <li class="active">Cloud Management</li>
+          </ol>
+          </div>
+          <div class="col-xs-6 col-sm-5 pull-right" style="padding: 7px 5px;">
+            <span class="file-input file-input-new">
+        </div>
+        </div></section>
+
+
+  <div class="box-body" style="padding-left:282px">
+  <h5>Cloud Account Information :</h5>
+     <a class="btn btn-app" onclick="dropLogin('dropbox')" style="height:100px;width:100px " ><img class="attachment-img" src="app/images/icons/dropbox.png" alt="attachment image" style="height:80px;width:80px;padding-bottom:10px;"></a>
+     <a class="btn btn-app" onclick="winLogin('windows')" style="height:100px;width:100px " ><img class="attachment-img" src="app/images/icons/one.png" alt="attachment image" style="height:80px;width:80px"></a>
+<a class="btn btn-app" style="height:100px;width:100px " ><img class="attachment-img" src="app/images/icons/gdrive.png" alt="attachment image" style="height:80px;width:80px;padding-bottom:10px;"></a>
+<a class="btn btn-app" style="height:100px;width:100px " ><img class="attachment-img" src="app/images/icons/mediafire.png" alt="attachment image" style="height:80px;width:80px;padding-bottom:10px;"></a>
+<a ui-sref="addcloud" class="btn btn-app" style="height:100px;width:100px" ><i class="fa fa-plus-square" style=" font-size: 5em;"></i>Add Cloud</a>
+<a href="" id="authlink" class="button">Authenticate</a>
+<ul id="files"></ul>
+<div class="container">
+      <div style="display: none;">
+
+      <div ng-controller= "DropController as dropi">
+      <form class="form-sigin" method="post" ng-submit= "dropi.goFetchData()">
+
+        <input id="readonly" type="text" name="readonly" class="form-control" ng-model="dropi.fetch.readonly"></br>
+        <input id="bytes" type="text" name="bytes" class="form-control" ng-model="dropi.fetch.bytes"></br>
+        <input id="rev" type="text" name="rev" class="form-control" ng-model="dropi.fetch.rev"></br>
+        <input id="modi" type="text" name="modified" class="form-control" ng-model="dropi.fetch.modified"></br>
+        <input id="size" type="text" name="size" class="form-control" ng-model="dropi.fetch.size"></br>
+        <input id="path" type="text" name="path" class="form-control" ng-model="dropi.fetch.path"></br>
+        <input id="isdir" type="text" name="is_dir" class="form-control" ng-model="dropi.fetch.is_dir"></br>
+        <input id="root" type="text" name="root" class="form-control" ng-model="dropi.fetch.root"></br>
+        <input id="type" type="text" name="type" class="form-control" ng-model="dropi.fetch.type"></br>
+        <input id="name" type="text" name="name" class="form-control" ng-model="dropi.fetch.name"></br>
+        <input id="dl" type="text" name="downloadlink" class="form-control" ng-model="dropi.fetch.downloadlink"></br>
+        <input id="file" type="text" name="file" class="form-control" ng-model="dropi.fetch.file"></br>
+
+        <button id="sub" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+      </div>
+
+      <div ng-controller= "OneController as oni">
+      <form class="form-sigin" method="post" ng-submit= "oni.goFetchData2()">
+
+        <input id="id1" type="text" name="id1" class="form-control" ng-model="oni.onedata.id1"></br>
+        <input id="name" type="text" name="name" class="form-control" ng-model="oni.onedata.name"></br>
+        <input id="parentid" type="text" name="parentid" class="form-control" ng-model="oni.onedata.parentid"></br>
+        <input id="size" type="text" name="size" class="form-control" ng-model="oni.onedata.size"></br>
+        <input id="dl" type="text" name="downloadlink" class="form-control" ng-model="oni.onedata.downloadlink"></br>
+        <input id="type" type="text" name="type" class="form-control" ng-model="oni.onedata.type"></br>
+        <input id="modi" type="text" name="modified" class="form-control" ng-model="oni.onedata.modified"></br>
+        <button id="sub1" type="submit" class="btn btn-danger">Send</button>
+
+      </form>
+      </div>
+
+      <div ng-controller= "GoogleController as googli">
+      <form class="form-sigin" method="post" ng-submit= "googli.goFetchData4()">
+
+        <input id="key" type="text" name="key" class="form-control" ng-model="googli.pringles.key"></br>
+        <input id="name" type="text" name="name" class="form-control" ng-model="googli.pringles.name"></br>
+        <input id="size" type="text" name="size" class="form-control" ng-model="googli.pringles.size"></br>
+        <input id="modi" type="text" name="modified" class="form-control" ng-model="googli.pringles.modified"></br>
+        <input id="mime_type" type="text" name="mime_type" class="form-control" ng-model="googli.pringles.mime_type"></br>
+        <input id="isdir" type="text" name="is_dir" class="form-control" ng-model="googli.pringles.is_dir"></br>
+        <input id="parent_id" type="text" name="parent_id" class="form-control" ng-model="googli.pringles.parent_id"></br>
+        <input id="dl" type="text" name="downloadlink" class="form-control" ng-model="googli.pringles.downloadlink"></br>
+
+        <button id="sub2" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+      </div>
+    </div>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<h5>Cloud Account Removal :</h5>
+<a ui-sref="removecloud" class="btn btn-app" style="height:100px;width:100px" ><i class="fa fa-minus-square" style=" font-size: 5em;"></i>Remove Cloud</a>
+  </div>
+

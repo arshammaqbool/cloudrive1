@@ -1,0 +1,51 @@
+<div class="container" ng-controller= "DropController as dropi">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+      <h1>Drop Box</h1>
+
+      <div >
+      <form id="myForm" class="form-sigin" method="post" ng-submit= "dropi.goFetchData()">
+
+        readonly: <input id="readonly" type="text" name="readonly" class="form-control" ng-model="dropi.fetch.readonly"></br>
+        bytes:<input id="bytes" type="text" name="bytes" class="form-control" ng-model="dropi.fetch.bytes"></br>
+        rev:<input id="rev" type="text" name="rev" class="form-control" ng-model="dropi.fetch.rev"></br>
+        modified:<input id="modi" type="text" name="modified" class="form-control" ng-model="dropi.fetch.modified"></br>
+        size:<input id="size" type="text" name="size" class="form-control" ng-model="dropi.fetch.size"></br>
+        path:<input id="path" type="text" name="path" class="form-control" ng-model="dropi.fetch.path"></br>
+        is_dir:<input id="isdir" type="text" name="is_dir" class="form-control" ng-model="dropi.fetch.is_dir"></br>
+        root:<input id="root" type="text" name="root" class="form-control" ng-model="dropi.fetch.root"></br>
+        type:<input id="type" type="text" name="type" class="form-control" ng-model="dropi.fetch.type"></br>
+        name:<input id="name" type="text" name="name" class="form-control" ng-model="dropi.fetch.name"></br>
+        downloadlink:<input id="dl" type="text" name="downloadlink" class="form-control" ng-model="dropi.fetch.downloadlink"></br>
+        file:<input id="file" type="text" name="file" class="form-control" ng-model="dropi.fetch.file"></br>
+
+        <button id="sub" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+    </div>
+
+      <button id="getData" class="btn btn-primary btn-rounded pull-left btn-bordered visible-lg" type="submit" onclick="getName('dropbox')">Get files</button>
+      <p id="chuss"></p>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-controller="DropController as umb">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="umb.goGetData()">collect</button>
+  <div class="col-md-3" ng-repeat="each in umb.dropboxData">
+    <p>{{ each._id }}</p>
+  </div>
+</div>
+
+<div class="row" ng-controller="DropController as mango">
+  <form id="myForm" class="form-sigin" method="post" ng-submit= "mango.goGetId()">
+
+
+    name:<input id="name2" type="text" name="name2" class="form-control" ng-model="mango.fetch.name"></br>
+    parent:<input id="parent2" type="text" name="parent2" class="form-control" ng-model="mango.fetch.parent"></br>
+
+    <button id="lala" type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>

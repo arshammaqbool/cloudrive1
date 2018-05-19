@@ -1,0 +1,141 @@
+<div class="wrapper hold-transition fixed skin-blue sidebar-mini sidebar-collapse" ng-controller= "MainController as login">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="index2.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><img src="app/images/fav2.png" style="width: auto; height: 25px"></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><img src="app/images/CD.png" style="width: auto; height: 35px; margin-top: 8px; margin-left: 30px;"></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+        <img src="app/images/CD.png" style="width: auto; height: 35px; margin-top: 8px; margin-left: 30px;">
+          <!-- Sidebar toggle button
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          -->
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+            <li style="margin-top: 10px;">
+              <form>
+                  <input type="search" placeholder="Search">
+              </form>
+          </li>
+              
+              <!-- Notifications Menu -->
+              <li class="dropdown notifications-menu">
+                <!-- Menu toggle button -->
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                    <!-- Inner Menu: contains the notifications -->
+                    <ul class="menu">
+                      <li><!-- start notification -->
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li><!-- end notification -->
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="">View all</a></li>
+                </ul>
+              </li>
+              
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu" on-toggle="toggled(open)">
+                <!-- Menu Toggle Button -->
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-circle text-success"></i>
+                  <!-- The user image in the navbar-->
+                  <img src="app/views/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs">{{login.user.username}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="app/views/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      Muhammad Ahmed
+                      <small>Member since March. 2016</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Shared</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href=""></a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Groups</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Settings</a>
+                    </div>
+                    <div class="pull-right">
+                      <a ng-click="login.doLogout()" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">HEADER</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview"><i class="fa fa-cloud" style="font-size: 1.5em;"></i></a></li>
+            <li><a ui-sref="mailbox"><i class="fa fa-file-image-o" style="font-size: 1.5em;"></i></a></li>
+            <li><a href="#"><i class="fa fa-envelope" style="font-size: 1.5em;"></i></a></li>
+            <li><a href="#"><i class="fa fa-users" style="font-size: 1.5em;"></i></a></li>
+
+            <li style="margin-top: 480%;"><a href="#"><i class="fa fa-trash" style="font-size: 1.5em;"></i></a></li>
+            <li><a ui-sref="settings"><i class="fa fa-cog" style="font-size: 1.5em;"></i></a></li>
+            <li><a href="#"><i class="fa fa-exchange" style="font-size: 1.5em;"></i></a></li>
+            <!--
+            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#">Link in level 2</a></li>
+                <li><a href="#">Link in level 2</a></li>
+              </ul>
+            </li>
+            -->
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content" ui-view>
+          <!-- Your Page Content Here -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+    </div><!-- ./wrapper -->

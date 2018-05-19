@@ -1,0 +1,55 @@
+<div class="login-container" ng-controller= "UserCreateController as user">
+            <div class="text-center pull-left" style="margin-left: 20%; margin-top: 18%;">
+                <img src="app/images/logo.png" width="200" class="img-responsive" />
+                <h4>LETS CHANGE THE WAY YOU<br/ > <span>STORE YOUR ONLINE STUFF!</span><br /></h4>
+            </div>
+            <div class="login-box animated fadeInDown" style="margin-left: 50%;">
+                <div class="login-logo"></div>
+                <div class="login-body">
+                    <div class="login-title"><strong>Register</strong> your account</div>
+                    <form class="form-horizontal" method="post" ng-submit= "user.signupUser()">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="fname" type="text" name="f_name" class="form-control" placeholder="First Name" ng-model="user.userData.f_name"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="lname" type="text" name="l_name" class="form-control" placeholder="Last Name" ng-model="user.userData.l_name"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="email" type="text" name="e_mail" class="form-control" placeholder="E-mail" ng-model="user.userData.e_mail"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="ruser" type="text" name="username" class="form-control" placeholder="Username" ng-model="user.userData.username"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="rpass" type="password" name="password" class="form-control" placeholder="Password" ng-model="user.userData.password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-block">Sign Up</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="login-footer">
+                    <div class="pull-left">
+                        &copy; 2016 COMBIDRIVE
+                    </div>
+                    <div class="pull-right">
+                        <a href="#">About</a> |
+                        <a href="#">Privacy</a> |
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>

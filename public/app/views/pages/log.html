@@ -1,0 +1,45 @@
+<div class="container" ng-controller= "LogController as logi">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+      <h1>Log</h1>
+
+      <div >
+      <form id="myForm" class="form-sigin" method="post" ng-submit= "logi.goFetchData7()">
+
+
+
+        name:<input id="name" type="text" name="name" class="form-control" ng-model="logi.logdata.name"></br>
+        size:<input id="size" type="text" name="size" class="form-control" ng-model="logi.logdata.size"></br>
+        modified:<input id="modi" type="text" name="modified" class="form-control" ng-model="logi.logdata.modified"></br>
+        path:<input id="path" type="text" name="path" class="form-control" ng-model="logi.logdata.path"></br>
+        parent:<input id="root" type="text" name="root" class="form-control" ng-model="logi.logdata.parent"></br>
+        is_dir:<input id="isdir" type="text" name="is_dir" class="form-control" ng-model="logi.logdata.is_dir"></br>
+        type:<input id="type" type="text" name="type" class="form-control" ng-model="logi.logdata.type"></br>
+        downloadlink:<input id="dl" type="text" name="downloadlink" class="form-control" ng-model="logi.logdata.downloadlink"></br>
+        upload_location:<input id="upload_location" type="text" name="upload_location" class="form-control" ng-model="logi.logdata.upload_location"></br>
+
+        <button id="sub" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+      </div>
+
+      <button id="getData" class="btn btn-primary btn-rounded pull-left btn-bordered visible-lg" type="submit" onclick="getName('dropbox')">Get files</button>
+      <p id="chuss"></p>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-controller="LogController as dude">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="dude.goGetData7()">collect</button>
+  <div class="col-md-3" ng-repeat="each in dude.logData">
+    <p>{{ each._id }}</p>
+  </div>
+</div>
+
+<div class="row" ng-controller="DropController as mango">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="mango.goGetId()" >Latest</button>
+  <div class="col-md-3"  ng-repeat="each in mango.latestData">
+      <p id="parent_id">{{ each._id }}</p>
+  </div>
+</div>

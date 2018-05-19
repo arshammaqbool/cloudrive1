@@ -1,0 +1,35 @@
+<div class="container" ng-controller= "GoogleController as googli">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+      <h1> Google Drive</h1>
+
+      <div >
+      <form id="myForm" class="form-sigin" method="post" ng-submit= "googli.goFetchData4()">
+
+        key:<input id="key" type="text" name="key" class="form-control" ng-model="googli.pringles.key"></br>
+        Name:<input id="name" type="text" name="name" class="form-control" ng-model="googli.pringles.name"></br>
+        Size:<input id="size" type="text" name="size" class="form-control" ng-model="googli.pringles.size"></br>
+        Modified:<input id="modi" type="text" name="modified" class="form-control" ng-model="googli.pringles.modified"></br>
+        Mime_type:<input id="mime_type" type="text" name="mime_type" class="form-control" ng-model="googli.pringles.mime_type"></br>
+        Is_dir:<input id="isdir" type="text" name="is_dir" class="form-control" ng-model="googli.pringles.is_dir"></br>
+        Parent_Id:<input id="parent_id" type="text" name="parent_id" class="form-control" ng-model="googli.pringles.parent_id"></br>
+        downloadlink:<input id="dl" type="text" name="downloadlink" class="form-control" ng-model="googli.pringles.downloadlink"></br>
+
+        <button id="sub2" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+    </div>
+
+      <button id="getData" class="btn btn-primary btn-rounded pull-left btn-bordered visible-lg" type="submit" onclick="loadDriveApi1()">Get files</button>
+      <p id="chuss"></p>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-controller="GoogleController as bomb">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="bomb.goGetData4()">collect</button>
+  <div class="col-md-3" ng-repeat="each in bomb.googledriveData">
+    <p>{{ each._id }}</p>
+  </div>
+</div>

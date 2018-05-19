@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href='/'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Combi Drive</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="app/views/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="app/styles/circle.css">
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="app/views/dist/css/AdminLTE.css">
+    
+    <link rel="stylesheet" href="app/views/dist/css/skins/skin-blue.min.css">
+
+    <script data-require="angular.js@1.2.10" data-semver="1.2.10" src="app/scripts/angular.js"></script>
+    <script src="app/scripts/angular-ui-router.js"></script>
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="app/views/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="app/views/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="app/views/dist/js/app.js"></script>
+  </head>
+
+<body ng-app="combiApp">
+    <div ui-view></div>
+
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+         Both of these plugins are recommended to enhance the
+         user experience. Slimscroll is required when using the
+         fixed layout. -->
+  </body>
+  
+    <script src="app/app.js"></script>
+    <!--Services-->
+    <script type= "text/javascript" src="app/services/authService.js"></script>
+    <script type= "text/javascript" src="app/services/userService.js"></script>
+    <script type= "text/javascript" src="app/services/dropService.js"></script>
+    <script type= "text/javascript" src="app/services/oneService.js"></script>
+    <script type= "text/javascript" src="app/services/mediaService.js"></script>
+    <script type= "text/javascript" src="app/services/googleService.js"></script>
+    <script type= "text/javascript" src="app/services/megaService.js"></script>
+    <script type= "text/javascript" src="app/services/cloudService.js"></script>
+    <script type= "text/javascript" src="app/services/logService.js"></script>
+
+    <!--Controllers-->
+    <script type= "text/javascript" src="app/controllers/mainCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/userCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/dropCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/oneCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/mediaCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/googleCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/megaCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/cloudCtrl.js"></script>
+    <script type= "text/javascript" src="app/controllers/logCtrl.js"></script>
+
+    <!--Apis-->
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <script type="text/javascript" src="app/scripts/hello.js" class="pre"></script>
+    <!--<script type="text/javascript" src="app/scripts/api/hdropbox.js" class="pre"></script>-->
+    <script type="text/javascript" src="app/scripts/api/hwindows.js" class="pre"></script>
+    <script type="text/javascript" src="app/scripts/api/hgoogle.js" class="pre"></script>
+    <script type="text/javascript" src="app/scripts/api/dropbox.js" class="pre"></script>
+    <script type="text/javascript" src="app/scripts/api/windows.js" class="pre"></script>
+    <script type="text/javascript" src="app/scripts/api/google.js" class="pre"></script>
+
+    <!--dropScripts-->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+    <script src="https://unpkg.com/dropbox@4.0.1/dist/Dropbox-sdk.min.js"></script>
+    <script src="https://unpkg.com/dropbox@4.0.1/src/utils.js"></script>
+    <script type="text/javascript" src="/utils.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){ 
+      var fileName = location.href.split("/").slice(-1); 
+      var ls = localStorage.getItem("token");
+      if(ls ==  null && fileName != "login")
+      {
+        window.location = "http://localhost:8000/login";
+      }
+      if(ls !=  null && fileName == "login")
+      {
+        window.location = "http://localhost:8000/dashboard/overview";
+      }
+    });
+  </script>
+
+  <script type="text/javascript">
+
+function combiAlgoUp(){
+  var win_total = 10000;
+  var drop_total = 2000;
+  var win_free = 6000;
+  var drop_free = 1050;
+  var fileSize = 150;
+
+  if((win_total - win_free) <= (win_total/2)){
+    
+   /* if(fileSize < win_free){
+      alert('windows1');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file1");
+      var b = document.getElementById('chotiChuss');
+      b.click();
+      return;
+    }*/
+    if(fileSize < drop_free){
+      alert('dropbox1');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file");
+      var b = document.getElementById('bariChuss');
+      b.click();
+      return;
+    }
+  }
+
+  else if((drop_total - drop_free) <= (drop_total/2)){
+    
+    if(fileSize < drop_free){
+      alert('dropbox1');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file");
+      var b = document.getElementById('bariChuss');
+      b.click();
+      return;
+    }
+
+  }
+
+  else if((win_total - win_free) <= ((3*win_total)/4)){
+    
+    if(fileSize < win_free){
+      alert('Windows2');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file1");
+      var b = document.getElementById('chotiChuss');
+      b.click();
+      return;
+    }
+
+  }
+
+  else if((drop_total - drop_free) <= ((3*drop_total)/4)){
+    
+    if(fileSize < drop_free){
+      alert('dropbox2');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file");
+      var b = document.getElementById('bariChuss');
+      b.click();
+      return;
+    }
+  
+  }
+  
+  else if(fileSize < win_free){
+      alert('Windows3');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file1");
+      var b = document.getElementById('chotiChuss');
+      b.click();
+    return;
+  }
+
+  else if(fileSize < drop_free){
+      alert('dropbox3');
+      var inp = document.getElementById('chuss');
+      inp.setAttribute("id", "file");
+      var b = document.getElementById('bariChuss');
+      b.click();
+    return;
+  }
+}
+
+</script>
+
+<script>
+    function doalert(obj) {
+      var fb = hello('dropbox').getAuthResponse();
+      var d = obj.getAttribute("href");
+      //var dl = d + "?access_token=" + fb["access_token"];
+      var dl = "https://www.dropbox.com/s/d3gclist6idobso/Bonus%20Assignment_DB.docx?dl=0";
+      alert(dl);
+      window.open(dl,"_self");
+      return false;
+    }
+    
+</script>
+
+</html>

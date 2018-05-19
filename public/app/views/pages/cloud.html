@@ -1,0 +1,39 @@
+<div class="container" ng-controller= "CloudController as cloudi">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+      <h1>Add Cloud</h1>
+
+      <div >
+      <form id="myForm" class="form-sigin" method="post" ng-submit= "cloudi.goFetchData6()">
+
+        cloud_name:<input id="cloud_name" type="text" name="cloud_name" class="form-control" ng-model="cloudi.cloudData.cloud_name"></br>
+        E_mail:<input id="e_mail" type="text" name="e_mail" class="form-control" ng-model="cloudi.cloudData.e_mail"></br>
+        password:<input id="password" type="password" name="password" class="form-control" ng-model="cloudi.cloudData.password"></br>
+        total_space:<input id="total_space" type="text" name="total_space" class="form-control" ng-model="cloudi.cloudData.total_space"></br>
+        remaining_space:<input id="remaining_space" type="text" name="remaining_space" class="form-control" ng-model="cloudi.cloudData.remaining_space"></br>
+        <button id="sub" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+    </div>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-controller="CloudController as cld">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="cld.goGetData6()">collect</button>
+</div>
+
+<div class="row" ng-controller="CloudController as cld">
+  <div >
+    <form id="myForm" class="form-sigin" method="post" ng-submit= "cld.goUpdateUser6()">
+
+      total_space:<input id="total_space" type="text" name="total_space" class="form-control" ng-model="cld.updateData.total_space"></br>
+      remaining_space:<input id="remaining_space" type="text" name="remaining_space" class="form-control" ng-model="cld.updateData.remaining_space"></br>
+      cloud_name:<input id="cloud_name" type="text" name="cloud_name" class="form-control" ng-model="cld.updateData.cloud_name"></br>
+      <button id="sub" type="submit" class="btn btn-success">Update</button>
+
+    </form>
+  </div>
+
+</div>

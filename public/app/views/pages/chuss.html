@@ -1,0 +1,59 @@
+<input onchange="combiAlgoUp()" type="file" id="chuss">
+
+<div style="display: none;">
+<form onsubmit="return upload('dropbox');">
+	<button id="bariChuss" type="submit"></button>
+</form>
+<form onsubmit="return uploadwin('windows');">
+	<button id="chotiChuss" type="submit"></button>
+</form>
+</div>
+
+<pre class="response"></pre>
+
+<button type="submit" onclick="dropLogin('dropbox')">Login to dropbox</button>
+<p>The function called when the above form is submitted</p>
+
+<button type="submit" onclick="createF('dropbox')">Folder</button>
+<button type="submit" onclick="getName('dropbox')">Name of files</button>
+<button type="submit" onclick="dropLogout('dropbox')">Logout</button>
+
+<br><br>
+<button type="submit" onclick="winLogin('windows')">Login to Windows</button>
+<button type="submit" onclick="getUser('windows')">get User Info</button>
+<p>The function called when the above form is submitted</p>
+
+<button type="submit" onclick="createF('windows')">Folder</button>
+<button type="submit" onclick="get_win_files('windows')">Name of files</button>
+<button type="submit" onclick="winLogout('windows')">Logout</button>
+
+<span>Authorize access to Drive API</span>
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="authorize-button" onclick="handleAuthClick(event)">
+        Authorize
+      </button>
+      <button id="u1" onclick="loadDriveApi()">
+        user
+      </button>
+      <button id="u2" onclick="loadDriveApi1()">
+        files
+      </button>
+      <button id="u2" onclick="loadDriveApi2()">
+        folder
+      </button>
+        <button id="u3" style="visibility:hidden">
+        click
+      </button>
+    </div>
+    <pre id="output"></pre>
+
+    <!--Add a file picker for the user to start the upload process -->
+    <input type="file" id="filePicker" />
+    <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
+
+<p id="u1">
+	
+</p>
+<p id="g1">
+	
+</p>

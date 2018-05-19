@@ -1,0 +1,210 @@
+<div class="box box-info box-solid" style="width: 20%" ng-controller="DropController as umb" ng-init="init()">
+  <div class="box-header with-border">
+    <h3 class="box-title">Cloud Drive</h3>
+  </div>
+  <div class="box-body" style="height:530px;overflow-y: scroll;overflow-x:hidden;" ng-controller="OneController as omb" ng-init="init()">
+    
+    <ul class="sidebar-menu" style="width:100%">
+            
+            <li class="treeview" ng-repeat="each in umb.dropboxData" ng-if="each.is_dir">
+             <a  class="treeview" ui-sref="#" ><i class="fa fa-folder" style="font-size: 1.5em; margin-right:0.2cm; vertical-align: middle;"></i>{{ each.name }}</a> 
+            </li>
+            
+            <li class="treeview" ng-repeat="each in omb.onedriveData" ng-if="each.type == 'folder' ">
+             <a  class="treeview" ui-sref="#" ><i class="fa fa-folder" style="font-size: 1.5em; margin-right:0.2cm; vertical-align: middle;"></i>{{ each.name }}</a> 
+            </li>
+            
+    </ul>
+  </div>
+  </div>
+</div>
+
+<!--<div class="box box-info box-solid" style="width: 20%" ng-controller="OneController as umb" ng-init="init()">
+  <div class="box-header with-border">
+    <h3 class="box-title">Cloud Drive</h3>
+  </div>
+  <div class="box-body" style="height:600px;overflow-y: scroll;overflow-x:hidden;">
+    
+    <ul class="sidebar-menu" style="width:100%">
+            <li class="treeview" ng-repeat="each in umb.onedriveData" ng-if="each.type == 'folder' ">
+             <a  class="treeview" ui-sref="#" ><i class="fa fa-folder" style="font-size: 1.5em; margin-right:0.2cm; vertical-align: middle;"></i>{{ each.name }}</a> 
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>-->
+
+<!-- Content Header (Page header) -->
+<section class="col-xs-12 col-sm-6 col-md-10 pull-right" style="position: fixed; z-index: 500; margin-left: 16.1%;">
+        <div class="navbarmod navbar-static-top" role="navigation">
+        <div class="col-xs-6 col-sm-4">
+          <ol class="breadcrumb content-header">
+            <li><a href="#"><i class="fa fa-cloud" style="font-size: 1.5em;  margin-right:0.2cm;vertical-align: middle;"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
+          </div>
+          <div class="col-xs-6 col-sm-5 pull-right" style="padding: 7px 5px;">
+            <span class="file-input file-input-new">
+            <div style="margin-right:2%; margin-top: 0.5%;"  class="btn btn-default btn-sm pull-left btn-file"> <img src="app/images/icons/upload.svg" style="width: 20px; height: 20px"> &nbsp;Upload<input onchange="combiAlgoUp()" type="file" multiple="" id="chuss"></div>
+            </span>
+            <a href="#" style="margin-right:2%; margin-top: 0.5%;" class="btn btn-default btn-sm pull-left"><img src="app/images/icons/folder.svg" style="width: 20px; height: 20px"> Folder</a>
+            <a href="#" style="margin-right:2%; margin-top: 0.5%;" class="btn btn-default btn-sm pull-left"><img src="app/images/icons/share.svg" style="width: 20px; height: 20px;"> Share</a>
+            <a href="#" style="margin-right:20%; margin-top: 2.5%" class="pull-right"><span class="glyphicon glyphicon-th-large"</span></a>
+            <a href="#" style="margin-right:5%; margin-top: 2.5%" class="pull-right"><span class="glyphicon glyphicon-th-list"</span></a>
+        </div>
+        </div>
+</section>
+<div class="jumbotron"  style="position:fixed">
+  <div class=container>
+
+            <div style="display: none;">
+
+                <form onsubmit="return upload('dropbox');">
+                  <button id="bariChuss" type="submit"></button>
+                </form>
+
+                <div ng-controller= "DropController as dropi">
+                  <form  class="form-sigin" method="post" ng-submit= "dropi.goFetchData()">
+
+                    <input id="readonly" type="text" name="readonly" class="form-control" ng-model="dropi.fetch.readonly"></br>
+                    <input id="bytes" type="text" name="bytes" class="form-control" ng-model="dropi.fetch.bytes"></br>
+                    <input id="rev" type="text" name="rev" class="form-control" ng-model="dropi.fetch.rev"></br>
+                    <input id="modi" type="text" name="modified" class="form-control" ng-model="dropi.fetch.modified"></br>
+                    <input id="size" type="text" name="size" class="form-control" ng-model="dropi.fetch.size"></br>
+                    <input id="path" type="text" name="path" class="form-control" ng-model="dropi.fetch.path"></br>
+                    <input id="isdir" type="text" name="is_dir" class="form-control" ng-model="dropi.fetch.is_dir"></br>
+                    <input id="root" type="text" name="root" class="form-control" ng-model="dropi.fetch.root"></br>
+                    <input id="type" type="text" name="type" class="form-control" ng-model="dropi.fetch.type"></br>
+                    <input id="name" type="text" name="name" class="form-control" ng-model="dropi.fetch.name"></br>
+                    <input id="dl" type="text" name="downloadlink" class="form-control" ng-model="dropi.fetch.downloadlink"></br>
+                    <input id="file" type="text" name="file" class="form-control" ng-model="dropi.fetch.file"></br>
+
+                    <button id="wadiChuss" type="submit" class="btn btn-danger">Submit</button>
+
+                </form>
+                </div>
+
+
+                <form onsubmit="return uploadwin('windows');">
+                  <button id="chotiChuss" type="submit"></button>
+                </form>
+
+                <form id="myForm" class="form-sigin" method="post" ng-submit= "cloudi.goFetchData6()">
+
+                <input id="cloud_name" type="text" name="cloud_name" class="form-control" ng-model="cloudi.cloudData.cloud_name">
+                <input id="e_mail" type="text" name="e_mail" class="form-control" ng-model="cloudi.cloudData.e_mail">
+                <input id="password" type="password" name="password" class="form-control" ng-model="cloudi.cloudData.password">
+                <input id="total_space" type="text" name="total_space" class="form-control" ng-model="cloudi.cloudData.total_space">
+                <input id="remaining_space" type="text" name="remaining_space" class="form-control" ng-model="cloudi.cloudData.remaining_space">
+                <button id="qsub" type="submit" class="btn btn-danger">Submit</button>
+                </form>
+
+            </div>
+
+
+
+
+            <!--<div ng-controller="DropController as umb">
+            <button id="sufi" type="submit" class="btn btn-success" ng-click="umb.goGetData()">collect</button>
+              <scrollable-table watch="visibleProjects">
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th sortable-header col="name">Name</th>
+                      <th sortable-header col="size">Size</th>
+                      <th sortable-header col="modified">Modified</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="each in umb.dropboxData" row-id="{{ each._id }}">
+                      <td>{{ each.name }}</td>
+                      <td>{{ each.size }}</td>
+                      <td>{{ each.modified }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </scrollable-table>
+            <div>-->
+
+
+            <!--<div ng-controller="OneController as umb" ng-init="init()">
+              <table class="table table-striped table-hover">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Modified</th>
+                <th>Shared</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="each in umb.onedriveData" row-id="{{ each.id1 }}" class="clickable-row">
+                <td class="filterable-cell"><a href="{{ each.downloadlink }}">{{ each.name }}</a></td>
+                <td class="filterable-cell">{{ each.size }}</td>
+                <td class="filterable-cell">{{ each.modified }}</td>
+                <td class="filterable-cell">Nope -_-</td>
+                </tr>
+              </tbody>
+              </table>
+            </div>-->
+            <!--<div class="row" ng-controller="CloudController as cld">
+              <button id="sufi" type="submit" class="btn btn-success" ng-click="cld.goGetData6()">collect</button>
+            </div>-->
+            <!--<button type="submit" onclick="dropboxUser('dropbox')">dropbox user information</button>
+            <button type="submit" onclick="getOne('windows')">get One Drive Info</button>-->
+            <div ng-controller="DropController as umb" ng-init="init()">
+              <table class="table table-striped table-responsive table-hover" ng-controller="OneController as omb" ng-init="init()">
+
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Application Type</th>
+                <th>Size</th>
+                <th>Modified</th>
+                <th>Shared</th>
+              </tr>
+              </thead>
+              <tbody>
+
+                <tr ng-repeat="each in umb.dropboxData" row-id="{{ each.id1 }}" class="clickable-row">
+                <td ng-if="!each.is_dir" class="filterable-cell" style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis;"><a id="dl" href="{{ each.downloadlink }}" onclick="doalert(this); return false;">{{ each.name }}</a></td>
+                <td ng-if="each.is_dir" class="filterable-cell" style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis;"><a id="dl" href="">{{ each.name }}</a></td>
+                <td class="filterable-cell">{{ each.type }}</td>
+                <td ng-if="!each.is_dir" class="filterable-cell">{{ each.size }}</td>
+                <td ng-if="each.is_dir" class="filterable-cell"> -- </td>
+                <td class="filterable-cell">{{ each.modified }}</td>
+                <td class="filterable-cell">Nope -_-</td>
+                </tr>
+
+                <tr ng-repeat="each in omb.onedriveData" row-id="{{ each.id1 }}" class="clickable-row">
+                <td class="filterable-cell" style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis;"><a href="{{ each.downloadlink }}">{{ each.name }}</a></td>
+                <td class="filterable-cell">{{ each.type }}</td>
+                <td class="filterable-cell">{{ each.size }}</td>
+                <td class="filterable-cell">{{ each.modified }}</td>
+                <td class="filterable-cell">Nope -_-</td>
+                </tr>
+              </tbody>
+              </table>
+
+              <div ng-controller= "DropController as umb">
+              <form class="form-sigin" method="post" ng-submit= "dropi.goFetchData()">
+
+                  <input id="readonly" type="text" name="readonly" class="form-control" ng-model="dropi.fetch.readonly"></br>
+                  <input id="bytes" type="text" name="bytes" class="form-control" ng-model="dropi.fetch.bytes"></br>
+                  <input id="rev" type="text" name="rev" class="form-control" ng-model="dropi.fetch.rev"></br>
+                  <input id="modi" type="text" name="modified" class="form-control" ng-model="dropi.fetch.modified"></br>
+                  <input id="size" type="text" name="size" class="form-control" ng-model="dropi.fetch.size"></br>
+                  <input id="path" type="text" name="path" class="form-control" ng-model="dropi.fetch.path"></br>
+                  <input id="isdir" type="text" name="is_dir" class="form-control" ng-model="dropi.fetch.is_dir"></br>
+                  <input id="root" type="text" name="root" class="form-control" ng-model="dropi.fetch.root"></br>
+                  <input id="type" type="text" name="type" class="form-control" ng-model="dropi.fetch.type"></br>
+                  <input id="name" type="text" name="name" class="form-control" ng-model="dropi.fetch.name"></br>
+                  <input id="dl" type="text" name="downloadlink" class="form-control" ng-model="dropi.fetch.downloadlink"></br>
+                  <input id="file" type="text" name="file" class="form-control" ng-model="dropi.fetch.file"></br>
+
+                  <button id="sub" type="submit" class="btn btn-danger">Submit</button>
+            </form>
+          </div>
+            </div>
+        </div>
+</div>

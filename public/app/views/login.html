@@ -1,0 +1,45 @@
+<div class="login-container" ng-controller= "MainController as login">
+            <div class="text-center pull-left" style="margin-left: 20%; margin-top: 18%;">
+                <img src="app/images/logo.png" width="200" class="img-responsive" />
+                <h4>LETS CHANGE THE WAY YOU<br/ > <span>STORE ONLINE STUFF!</span><br /></h4>
+            </div>
+            <div class="login-box animated fadeInDown" style="margin-left: 50%; margin-top: 7%;">
+                <div class="login-body">
+                    <div class="login-title"><strong>Log In</strong> to your account</div>
+                    <form class="form-horizontal" method="post" ng-submit= "login.doLogin()">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="user" type="text" class="form-control" placeholder="E-mail" ng-model="login.loginData.username"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input id="pass" type="password" class="form-control" placeholder="Password" ng-model="login.loginData.password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-block">Log In</button>
+                        </div>
+                    </div>
+                    <div class="login-subtitle">
+                        Don't have an account yet? <a ui-sref="register">Create an account</a>
+                    </div>
+                    </form>
+                </div>
+                <div class="login-footer">
+                    <div class="pull-left">
+                        &copy; 2016 COMBIDRIVE
+                    </div>
+                    <div class="pull-right">
+                        <a href="#">About</a> |
+                        <a href="#">Privacy</a> |
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+</div>

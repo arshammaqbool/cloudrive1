@@ -1,0 +1,34 @@
+<div class="container" ng-controller= "MediaController as medusa">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+      <h1>Mediafire</h1>
+
+      <div >
+      <form id="myForm" class="form-sigin" method="post" ng-submit= "medusa.goFetchData3()">
+
+        key:<input id="key" type="text" name="key" class="form-control" ng-model="medusa.dunkin.key"></br>
+        size:<input id="size" type="text" name="size" class="form-control" ng-model="medusa.dunkin.size"></br>
+        is_dir:<input id="is_dir" type="text" name="is_dir" class="form-control" ng-model="medusa.dunkin.is_dir"></br>
+        name:<input id="name" type="text" name="name" class="form-control" ng-model="medusa.dunkin.name"></br>
+        mime_type:<input id="mime_type" type="text" name="mime_type" class="form-control" ng-model="medusa.dunkin.mime_type"></br>
+        created:<input id="created" type="text" name="created" class="form-control" ng-model="medusa.dunkin.created"></br>
+        downloadlink:<input id="downloadlink" type="text" name="downloadlink" class="form-control" ng-model="medusa.dunkin.downloadlink"></br>
+
+        <button id="sub" type="submit" class="btn btn-danger">Submit</button>
+
+      </form>
+    </div>
+
+      <button id="getData" class="btn btn-primary btn-rounded pull-left btn-bordered visible-lg" type="submit" onclick="getName('dropbox')">Get files</button>
+      <p id="chuss"></p>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-controller="MediaController as snape">
+  <button id="sufi" type="submit" class="btn btn-success" ng-click="snape.goGetData3()">collect</button>
+  <div class="col-md-3" ng-repeat="each in snape.mediafireData">
+    <p>{{ each._id }}</p>
+  </div>
+</div>
